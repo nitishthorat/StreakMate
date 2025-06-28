@@ -2,6 +2,7 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from 'navigation/types';
+import { Ionicons } from '@expo/vector-icons';
 
 type UserInfoNavProp = NativeStackNavigationProp<RootStackParamList, 'UserInfo'>;
 export default function UserInfoScreen() {
@@ -9,6 +10,13 @@ export default function UserInfoScreen() {
 
   return (
     <View className="flex-1 bg-[#FAF8F7] p-6">
+      {/* Back Button */}
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={{ position: 'absolute', left: 16, top: 40, zIndex: 10 }}
+      >
+        <Ionicons name="arrow-back" size={28} color="#3E2723" />
+      </TouchableOpacity>
       <Text className="mb-2 text-center text-2xl font-bold text-[#3E2723]">
         Tell us about yourself
       </Text>

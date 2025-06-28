@@ -20,12 +20,22 @@ export default function ChooseHabitScreen() {
 
   return (
     <ScrollView className="flex-1 bg-[#FAF9F7] px-6 py-12">
+      {/* Back Button */}
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={{ position: 'absolute', left: 16, top: -10, zIndex: 10 }}
+      >
+        <Ionicons name="arrow-back" size={28} color="#331B11" />
+      </TouchableOpacity>
       {/* Heading */}
       <Text className="mb-2 text-3xl font-extrabold text-[#331B11]">Choose your first habit</Text>
       <Text className="mb-6 text-lg text-[#4B3C38]">Start with something that excites you</Text>
 
       {/* Create your own habit */}
-      <TouchableOpacity className="mb-6 flex-row items-center justify-center rounded-2xl border border-dashed border-[#FF4F38] px-5 py-4">
+      <TouchableOpacity
+        className="mb-6 flex-row items-center justify-center rounded-2xl border border-dashed border-[#FF4F38] px-5 py-4"
+        onPress={() => navigation.navigate('EnterHabitDetails')}
+      >
         <Ionicons name="add" size={24} color="#331B11" />
         <Text className="ml-2 text-lg font-semibold text-[#331B11]">Create your own habit</Text>
       </TouchableOpacity>

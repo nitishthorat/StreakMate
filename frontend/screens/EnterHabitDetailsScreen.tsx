@@ -3,6 +3,7 @@ import { Text, TextInput, TouchableOpacity, View, ScrollView } from 'react-nativ
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from 'navigation/types';
+import { Ionicons } from '@expo/vector-icons';
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'EnterHabitDetails'>;
 
@@ -18,6 +19,13 @@ export default function EnterHabitDetailsScreen() {
 
   return (
     <ScrollView className="flex-1 bg-[#F8F7F5] px-6 py-8">
+      {/* Back Button */}
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={{ position: 'absolute', left: 16, top: 40, zIndex: 10 }}
+      >
+        <Ionicons name="arrow-back" size={28} color="#3E2723" />
+      </TouchableOpacity>
       <View className="mb-4 items-end">
         <Text className="text-2xl">🔔</Text>
       </View>
