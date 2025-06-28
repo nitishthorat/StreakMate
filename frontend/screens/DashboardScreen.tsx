@@ -17,6 +17,7 @@ type Habit = {
   lastCompleted: string | null;
   goalDays: number;
   daysCompleted: number;
+  hasPartner: boolean;
 };
 
 // Define user data type
@@ -32,16 +33,31 @@ const mockHabits: Habit[] = [
   {
     id: '1',
     name: 'Read 10 minutes',
-    description: 'Description of what is intended by the heading',
+    description: 'Daily reading: simple, sustainable, boosts focus, increases knowledge.',
     category: 'Education',
     streak: 0,
-    groupStreak: 0,
+    groupStreak: 2,
     frequency: 'Daily',
     timeOfDay: 'Evening',
     lastCompleted: null,
     goalDays: 7,
     daysCompleted: 0,
+    hasPartner: true // This habit has a partner
   },
+  // {
+  //   id: '2',
+  //   name: 'Daily Exercise',
+  //   description: 'Quick 15-minute workout to boost energy and build strength',
+  //   category: 'Health',
+  //   streak: 0,
+  //   groupStreak: 0,
+  //   frequency: 'Daily',
+  //   timeOfDay: 'Morning',
+  //   lastCompleted: null,
+  //   goalDays: 14,
+  //   daysCompleted: 0,
+  //   hasPartner: false // User has not found a partner for this habit yet
+  // }
 ];
 
 // Mock user data
@@ -88,6 +104,11 @@ export default function DashboardScreen() {
   }, []);
 
   const checkIn = (habitId: string) => {
+    // Find the habit that's being checked in
+    const habit = habits.find(h => h.id === habitId);
+    
+    if (!habit) return;
+    
     // Update UI optimistically
     setHabits(
       habits.map((habit) =>
@@ -108,6 +129,27 @@ export default function DashboardScreen() {
     //   headers: { 'Content-Type': 'application/json' },
     //   body: JSON.stringify({ habitId })
     // });
+    
+    // Create updated habit with new streak values
+    const updatedHabit = {
+      ...habit,
+      lastCompleted: new Date().toISOString(),
+      streak: habit.streak + 1,
+      daysCompleted: habit.daysCompleted + 1,
+    };
+    
+    if (updatedHabit) {
+      // Navigate to the celebration screen
+      navigation.navigate('Celebration', {
+        habitId: updatedHabit.id,
+        habitName: updatedHabit.name,
+        currentStreak: updatedHabit.streak,
+        daysCompleted: updatedHabit.daysCompleted,
+        goalDays: updatedHabit.goalDays,
+        hasPartner: updatedHabit.hasPartner,
+        partnerCheckedIn: false // Assuming partner hasn't checked in yet
+      });
+    }
   };
 
   const isCompletedToday = (lastCompleted: string | null) => {
@@ -222,7 +264,17 @@ export default function DashboardScreen() {
                         />
                       </View>
                     </View>
-                    <Text className="text-gray-600">Group streak {habit.groupStreak}</Text>
+                    
+                    {/* Show streak badge if partner exists */}
+                    {habit.hasPartner ? (
+                      <View className="flex-row items-center">
+                        <View className="bg-[#DDDDDD] rounded-full ml-2 px-3 py-1">
+                          <Text className="text-gray-700 font-medium">Day {habit.groupStreak}</Text>
+                        </View>
+                      </View>
+                    ) : (
+                      <Text className="text-gray-600 ml-2">Group streak {habit.groupStreak}</Text>
+                    )}
                   </View>
 
                   <TouchableOpacity

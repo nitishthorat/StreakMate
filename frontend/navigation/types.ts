@@ -6,4 +6,13 @@ export type RootStackParamList = {
   Dashboard: undefined;
   Leaderboard: undefined;
   FindPartner: undefined;
+  Celebration: {
+    habitId: string;
+    habitName: string;
+    currentStreak: number;
+    daysCompleted: number;
+    goalDays: number;
+    hasPartner: boolean;
+    partnerCheckedIn: boolean;
+  };
 };

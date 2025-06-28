@@ -8,8 +8,9 @@ import './global.css';
 import WelcomeScreen from 'screens/WelcomeScreen';
 import UserInfoScreen from 'screens/UserInfoScreen';
 import EnterHabitDetailsScreen from 'screens/EnterHabitDetailsScreen';
-
 import DashboardScreen from 'screens/DashboardScreen';
+import CelebrationScreen from 'screens/CelebrationScreen';
+
 import BottomTabs from 'components/BottomTabs';
 import LeaderboardScreen from 'screens/LeaderboardScreen';
 import FindPartnerScreen from 'screens/FindPartnerScreen';
@@ -33,6 +34,7 @@ export default function App() {
           <Stack.Screen name="Dashboard" component={DashboardScreen} />
           <Stack.Screen name="FindPartner" component={FindPartnerScreen} />
           <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
+          <Stack.Screen name="Celebration" component={CelebrationScreen} />
         </Stack.Navigator>
         <BottomTabs />
       </NavigationContainer>
