@@ -88,7 +88,7 @@ export default function EnterHabitDetailsScreen() {
 
       <TouchableOpacity
         className="mb-4 rounded-full bg-[#FF4F38] py-4"
-        // onPress={() => navigation.navigate('ReviewAndSubmit')}
+        onPress={() => navigation.navigate('Dashboard')}
       >
         <Text className="text-center text-lg font-semibold text-white">Continue →</Text>
       </TouchableOpacity>

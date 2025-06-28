@@ -3,4 +3,5 @@ export type RootStackParamList = {
   UserInfo: undefined;
   ChooseHabit: undefined;
   EnterHabitDetails: undefined;
+  Dashboard: undefined;
 };
