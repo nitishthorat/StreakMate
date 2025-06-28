@@ -4,4 +4,5 @@ export type RootStackParamList = {
   ChooseHabit: undefined;
   EnterHabitDetails: undefined;
   Dashboard: undefined;
+  Leaderboard: undefined;
 };
