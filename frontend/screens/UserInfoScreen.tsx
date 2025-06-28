@@ -1,6 +1,12 @@
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from 'navigation/types';
 
+type UserInfoNavProp = NativeStackNavigationProp<RootStackParamList, 'UserInfo'>;
 export default function UserInfoScreen() {
+  const navigation = useNavigation<UserInfoNavProp>();
+
   return (
     <View className="flex-1 bg-[#FAF8F7] p-6">
       <Text className="mb-2 text-center text-2xl font-bold text-[#3E2723]">
@@ -40,8 +46,10 @@ export default function UserInfoScreen() {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity className="rounded-full bg-[#FF4F38] py-4">
-        <Text className="text-center text-lg font-semibold text-white">Continue ➜</Text>
+      <TouchableOpacity
+        className="mt-10 rounded-full bg-[#FF4F38] px-6 py-4"
+        onPress={() => navigation.navigate('ChooseHabit')}>
+        <Text className="text-center text-lg font-semibold text-white">Continue ➔</Text>
       </TouchableOpacity>
     </View>
   );

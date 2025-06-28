@@ -1,9 +1,6 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import {
-  NativeStackNavigationProp,
-  NativeStackScreenProps,
-} from 'react-native-screens/lib/typescript/native-stack/types';
+import { NativeStackNavigationProp } from 'react-native-screens/lib/typescript/native-stack/types';
 import { RootStackParamList } from 'navigation/types';
 
 type WelcomeNavProp = NativeStackNavigationProp<RootStackParamList, 'Welcome'>;

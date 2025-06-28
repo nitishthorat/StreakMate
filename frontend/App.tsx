@@ -1,11 +1,13 @@
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ChooseHabitScreen from 'screens/ChooseHabitScreen';
 import { RootStackParamList } from 'navigation/types';
 
 import './global.css';
 import WelcomeScreen from 'screens/WelcomeScreen';
 import UserInfoScreen from 'screens/UserInfoScreen';
+import EnterHabitDetailsScreen from 'screens/EnterHabitDetailsScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -22,6 +24,8 @@ export default function App() {
         <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="UserInfo" component={UserInfoScreen} />
+          <Stack.Screen name="ChooseHabit" component={ChooseHabitScreen} />
+          <Stack.Screen name="EnterHabitDetails" component={EnterHabitDetailsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
