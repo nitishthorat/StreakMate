@@ -8,6 +8,8 @@ import './global.css';
 import WelcomeScreen from 'screens/WelcomeScreen';
 import UserInfoScreen from 'screens/UserInfoScreen';
 import EnterHabitDetailsScreen from 'screens/EnterHabitDetailsScreen';
+import BottomTabs from 'components/BottomTabs';
+import LeaderboardScreen from 'screens/LeaderboardScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -26,7 +28,9 @@ export default function App() {
           <Stack.Screen name="UserInfo" component={UserInfoScreen} />
           <Stack.Screen name="ChooseHabit" component={ChooseHabitScreen} />
           <Stack.Screen name="EnterHabitDetails" component={EnterHabitDetailsScreen} />
+          <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
         </Stack.Navigator>
+        <BottomTabs />
       </NavigationContainer>
     </>
   );
