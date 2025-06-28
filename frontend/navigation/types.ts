@@ -5,4 +5,5 @@ export type RootStackParamList = {
   EnterHabitDetails: undefined;
   Dashboard: undefined;
   Leaderboard: undefined;
+  FindPartner: undefined;
 };

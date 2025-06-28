@@ -12,7 +12,7 @@ import EnterHabitDetailsScreen from 'screens/EnterHabitDetailsScreen';
 import DashboardScreen from 'screens/DashboardScreen';
 import BottomTabs from 'components/BottomTabs';
 import LeaderboardScreen from 'screens/LeaderboardScreen';
-
+import FindPartnerScreen from 'screens/FindPartnerScreen';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
@@ -31,6 +31,7 @@ export default function App() {
           <Stack.Screen name="ChooseHabit" component={ChooseHabitScreen} />
           <Stack.Screen name="EnterHabitDetails" component={EnterHabitDetailsScreen} />
           <Stack.Screen name="Dashboard" component={DashboardScreen} />
+          <Stack.Screen name="FindPartner" component={FindPartnerScreen} />
           <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
         </Stack.Navigator>
         <BottomTabs />
